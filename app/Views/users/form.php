@@ -1,0 +1,15 @@
+<?= $this->extend('layout') ?>
+<?= $this->section('content') ?>
+<?php $editing = $user !== null; ?>
+<section class="page-intro"><div><div class="eyebrow">User accounts</div><h1><?= $editing ? 'Edit user' : 'New user' ?></h1></div><p>Fields marked with an asterisk are required.</p></section>
+<form class="record-form card" action="<?= site_url($editing ? 'users/' . $user['id'] : 'users') ?>" method="post" enctype="multipart/form-data" novalidate>
+    <?= csrf_field() ?>
+    <div class="field"><label for="username">Username <span aria-hidden="true">*</span></label><input id="username" name="username" type="text" maxlength="50" required value="<?= esc($values['username'], 'attr') ?>" <?= isset($errors['username']) ? 'aria-invalid="true" aria-describedby="username-error"' : '' ?>><?php if (isset($errors['username'])): ?><span class="field-error" id="username-error"><?= esc($errors['username']) ?></span><?php endif; ?></div>
+    <div class="field"><label for="full_name">Full name <span aria-hidden="true">*</span></label><input id="full_name" name="full_name" type="text" maxlength="100" required value="<?= esc($values['full_name'], 'attr') ?>" <?= isset($errors['full_name']) ? 'aria-invalid="true" aria-describedby="full_name-error"' : '' ?>><?php if (isset($errors['full_name'])): ?><span class="field-error" id="full_name-error"><?= esc($errors['full_name']) ?></span><?php endif; ?></div>
+    <div class="field"><label for="password">Password <?= $editing ? '' : '<span aria-hidden="true">*</span>' ?></label><input id="password" name="password" type="password" minlength="8" maxlength="255" autocomplete="new-password" <?= $editing ? '' : 'required' ?> <?= isset($errors['password']) ? 'aria-invalid="true" aria-describedby="password-error password-help"' : 'aria-describedby="password-help"' ?>><span class="field-help" id="password-help"><?= $editing ? 'Leave blank to keep the current password.' : 'Use at least 8 characters.' ?></span><?php if (isset($errors['password'])): ?><span class="field-error" id="password-error"><?= esc($errors['password']) ?></span><?php endif; ?></div>
+    <?php if ($editing): ?>
+        <div class="field"><label for="avatar">Profile picture</label><img class="avatar avatar-preview" src="<?= base_url(! empty($user['avatar']) ? 'uploads/avatars/' . rawurlencode($user['avatar']) : 'images/avatar-placeholder.svg') ?>" alt="Current profile picture" width="80" height="80"><input id="avatar" name="avatar" type="file" accept="image/jpeg,image/png" <?= isset($errors['avatar']) ? 'aria-invalid="true" aria-describedby="avatar-error avatar-help"' : 'aria-describedby="avatar-help"' ?>><span class="field-help" id="avatar-help">JPG or PNG, up to 2 MB. Leave blank to keep the current picture.</span><?php if (isset($errors['avatar'])): ?><span class="field-error" id="avatar-error"><?= esc($errors['avatar']) ?></span><?php endif; ?></div>
+    <?php endif; ?>
+    <div class="form-actions"><button class="button" type="submit"><?= $editing ? 'Save changes' : 'Create user' ?></button><a class="text-link" href="<?= site_url('users') ?>">Cancel</a></div>
+</form>
+<?= $this->endSection() ?>

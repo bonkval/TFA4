@@ -1,0 +1,5 @@
+<?= $this->extend('layout') ?>
+<?= $this->section('content') ?>
+<section class="hero"><div class="hero-copy"><div class="eyebrow">CodeIgniter 4 · Customer and user records</div><h1><?= esc($heading) ?></h1><p>Sign in as staff to manage customer and user accounts, update details, and upload profile pictures.</p><a class="button" href="<?= site_url(session()->get('user') !== null ? 'customers' : 'login') ?>"><?= session()->get('user') !== null ? 'View customer accounts' : 'Staff login' ?></a></div></section>
+<section class="grid" aria-label="POS modules"><article class="feature"><h3>Customer Accounts</h3><p>Create customers with a valid email address, then edit their account details.</p></article><article class="feature"><h3>User Accounts</h3><p>Create unique usernames and update account names and profile pictures.</p></article><article class="feature"><h3>About the Lab</h3><p>See how routes, controllers, models, views, and validation work together.</p></article></section>
+<?= $this->endSection() ?>
