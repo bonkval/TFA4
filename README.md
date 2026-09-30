@@ -6,35 +6,39 @@ This CodeIgniter 4 project continues [TFA3](https://github.com/bonkval/TFA3). It
 
 ### Home (`/`)
 
-![Home page](screenshots/home.png)
+![TFA4 home page](screenshots/home.png)
+
+### Staff login (`/login`)
+
+![Staff login page](screenshots/login.png)
+
+### Customer Accounts (`/customers`)
+
+![Authenticated Customer Accounts listing](screenshots/customers.png)
+
+### New Customer (`/customers/new`)
+
+![Authenticated New Customer form](screenshots/customers-new.png)
+
+### Edit Customer (`/customers/1/edit`)
+
+![Authenticated Edit Customer form](screenshots/customers-edit.png)
+
+### User Accounts (`/users`)
+
+![Authenticated User Accounts listing](screenshots/users.png)
+
+### New User (`/users/new`)
+
+![Authenticated New User form with password field](screenshots/users-new.png)
+
+### Edit User (`/users/1/edit`)
+
+![Authenticated Edit User form and profile picture upload](screenshots/users-edit.png)
 
 ### About (`/about`)
 
 ![About page](screenshots/about.png)
-
-### Customer Accounts (`/customers`)
-
-![Customer Accounts listing](screenshots/customers.png)
-
-### New Customer (`/customers/new`)
-
-![New Customer form](screenshots/customers-new.png)
-
-### Edit Customer (`/customers/1/edit`)
-
-![Edit Customer form](screenshots/customers-edit.png)
-
-### User Accounts (`/users`)
-
-![User Accounts listing](screenshots/users.png)
-
-### New User (`/users/new`)
-
-![New User form](screenshots/users-new.png)
-
-### Edit User (`/users/1/edit`)
-
-![Edit User form and profile picture upload](screenshots/users-edit.png)
 
 ## Local setup
 
